@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rizky Ahmed Darmawan - Portofolio</title>
+    <title>PUSAT KREATIF RAD</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap');
 
@@ -482,7 +482,7 @@ video {
         <button id="unmuteButton" class="unmute-button" onclick="unmuteVideo()">Aktifkan Suara 🎵</button>
 	<div id="musicIcon" class="music-icon">🎶</div>
         <!-- Tombol Terjemahan -->
-        <button id="translateButton" class="translate-button" onclick="toggleTranslation()">Bahasa Inggris</button>
+        <button id="translateButton" class="translate-button" onclick="toggleTranslation()">English translation</button>
 
         <div class="button-group">
             <a class="button" href="https://stock.adobe.com/contributor/212427416/Rizky%20Ahmed%20Darmawan" target="_blank">Adobe Stock</a>
@@ -515,7 +515,7 @@ video {
             const translateButton = document.getElementById("translateButton");
             const unmuteButton = document.getElementById("unmuteButton");
 
-            const inEnglish = translateButton.textContent === "Bahasa Inggris";
+            const inEnglish = translateButton.textContent === "English translation";
 
             if (inEnglish) {
 		headerTitle1.textContent = "WELCOME";
@@ -527,7 +527,7 @@ video {
 		headerTitle1.textContent = "SELAMAT DATANG";
                 headerTitle2.innerHTML = "DI PUSAT KREATIVITAS DIGITAL <span>RAD</span>!";
                 subtitle.innerHTML = "Hai, kreator, visioner, atau sekadar pencari inspirasi! <span class='icon'>🌟</span><br>Anda baru saja melangkah ke dunia di mana ide-ide visual hidup dan seni digital berbicara dengan keindahan.";
-                translateButton.textContent = "Bahasa Inggris";
+                translateButton.textContent = "English translation";
 		unmuteButton.textContent = "Aktifkan Suara 🎵";
             }
         }
