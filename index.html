@@ -208,6 +208,9 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
             width: 80%; /* Ukuran tombol menjadi 45% agar terlihat dua kolom */
             text-align: center;
+	    text-align: center;
+    	    margin: 0.5rem; /* Memberikan jarak antar tombol */
+   	    border: none; /* Menghapus garis hitam */
     }
 
         .button:hover {
@@ -441,6 +444,38 @@
     }
 }
 
+/* Gaya umum untuk tombol */
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px;
+}
+
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+  button {
+    font-size: 14px;
+    padding: 8px 18px;
+  }
+}
+
+/* Responsif untuk ponsel */
+@media (max-width: 480px) {
+  button {
+    font-size: 12px;
+    padding: 6px 16px;
+    margin: 3px;
+  }
+}
+
+
 /* Penyesuaian header teks agar lebih responsif */
 header h1 {
     font-size: clamp(1.8rem, 5vw, 3rem); /* Ukuran fleksibel berdasarkan viewport */
@@ -460,6 +495,60 @@ video {
     margin-bottom: 1.5rem; /* Jarak dengan tombol di bawahnya */
 }
         }
+.menu-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    max-width: 90%;
+}
+
+.menu.hidden {
+    display: none;
+}
+
+.menu button {
+    background-color: #1171B1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+	
+}
+
+.menu button:hover {
+    background-color: #FCC102;
+}
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Layar gelap transparan */
+    z-index: 999; /* Di atas elemen lain */
+    pointer-events: none; /* Tidak menangkap klik jika tidak aktif */
+}
 
     </style>
 </head>
@@ -484,54 +573,133 @@ video {
         <!-- Tombol Terjemahan -->
         <button id="translateButton" class="translate-button" onclick="toggleTranslation()">English translation</button>
 
-        <div class="button-group">
-            <a class="button" href="https://stock.adobe.com/contributor/212427416/Rizky%20Ahmed%20Darmawan" target="_blank">Adobe Stock</a>
-            <a class="button" href="https://www.shutterstock.com/g/Rizky+Ahmed+Darmawan" target="_blank">Shutterstock</a>
-            <a class="button" href="https://www.sribu.com/id/users/RizkyAhmedDarmawan" target="_blank">Sribu</a>
-            <a class="button" href="https://opensea.io/collection/timeless-motion-art" target="_blank">OpenSea</a>
-            <a class="button" href="https://www.youtube.com/@RizkyAhmedDarmawan"target="_blank">Youtube</a>
-            <a class="button" href="https://www.instagram.com/rizky_ahmed_darmawan/" target="_blank">Instagram</a>
-        </div>
+        <div id="overlay" onclick="closeMenu()"></div>
+<div class="container">
+    	<button id="btnAsetDigital" class="button">Aset Seni Digital</button>
+	<button id="btnAsetNFT" class="button">Aset Seni NFT</button>
+	<button id="btnBuatAset" class="button">Buat Aset</button>
+	<button id="btnAsetInspiratif" class="button">Aset Inspiratif</button>
+</div>
+
+<div id="menu1" class="menu hidden">
+    <button onclick="window.open('https://www.shutterstock.com/g/Rizky+Ahmed+Darmawan', '_blank')">Shutterstock</button>
+    <button onclick="window.open('https://stock.adobe.com/contributor/212427416/Rizky%20Ahmed+Darmawan', '_blank')">Adobe Stock</button>
+    <button onclick="closeMenu()">Kembali</button>
+</div>
+
+<div id="menu2" class="menu hidden">
+    <button onclick="window.open('https://opensea.io/collection/timeless-motion-art', '_blank')">Opensea</button>
+    <button onclick="closeMenu()">Kembali</button>
+</div>
+
+<div id="menu3" class="menu hidden">
+    <button onclick="window.open('https://www.sribu.com/id/users/RizkyAhmedDarmawan', '_blank')">Sribu</button>
+    <button onclick="closeMenu()">Kembali</button>
+</div>
+
+<div id="menu4" class="menu hidden">
+    <button onclick="window.open('https://www.youtube.com/@RizkyAhmedDarmawan', '_blank')">YouTube</button>
+    <button onclick="window.open('https://www.instagram.com/rizky_ahmed_darmawan/', '_blank')">Instagram</button>
+    <button onclick="closeMenu()">Kembali</button>
+</div>
     </div>
 
     <footer>
         &copy; 2024 Rizky Ahmed Darmawan. All Rights Reserved.
     </footer>
 
-    <script>
-        // Fungsi untuk mengaktifkan suara video
-        function unmuteVideo() {
-            const video = document.getElementById('portfolioVideo');
-            video.muted = false; // Matikan mute
-            video.play(); // Pastikan video tetap berjalan
-            document.getElementById('unmuteButton').style.display = 'none'; // Sembunyikan tombol
-        }
+   <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const btnAsetDigital = document.getElementById("btnAsetDigital");
+    const btnAsetNFT = document.getElementById("btnAsetNFT");
+    const btnBuatAset = document.getElementById("btnBuatAset");
+    const btnAsetInspiratif = document.getElementById("btnAsetInspiratif");
 
-        // Fungsi untuk mengganti bahasa
-        function toggleTranslation() {
-            const headerTitle1 = document.querySelector("header h1:nth-of-type(1)");
-            const headerTitle2 = document.querySelector("header h1:nth-of-type(2)");
-            const subtitle = document.getElementById("subtitle");
-            const translateButton = document.getElementById("translateButton");
-            const unmuteButton = document.getElementById("unmuteButton");
+    // Tambahkan event listener untuk tombol menu
+    btnAsetDigital.addEventListener('click', () => showMenu('menu1'));
+    btnAsetNFT.addEventListener('click', () => showMenu('menu2'));
+    btnBuatAset.addEventListener('click', () => showMenu('menu3'));
+    btnAsetInspiratif.addEventListener('click', () => showMenu('menu4'));
 
-            const inEnglish = translateButton.textContent === "English translation";
+    // Event untuk overlay agar menutup menu
+    document.getElementById("overlay").addEventListener('click', closeMenu);
+});
 
-            if (inEnglish) {
-		headerTitle1.textContent = "WELCOME";
-                headerTitle2.innerHTML = "TO THE DIGITAL CREATIVITY CENTER <span>RAD</span>!";
-                subtitle.innerHTML = "Hi, creators, visionaries, or just seekers of inspiration! <span class='icon'>🌟</span><br>You have just stepped into a world where visual ideas come alive and digital art speaks with elegance.";
-                translateButton.textContent = "Bahasa Indonesia";
-		unmuteButton.textContent = "Enable Sound 🎵";
-            } else {
-		headerTitle1.textContent = "SELAMAT DATANG";
-                headerTitle2.innerHTML = "DI PUSAT KREATIVITAS DIGITAL <span>RAD</span>!";
-                subtitle.innerHTML = "Hai, kreator, visioner, atau sekadar pencari inspirasi! <span class='icon'>🌟</span><br>Anda baru saja melangkah ke dunia di mana ide-ide visual hidup dan seni digital berbicara dengan keindahan.";
-                translateButton.textContent = "English translation";
-		unmuteButton.textContent = "Aktifkan Suara 🎵";
-            }
-        }
-    </script>
+function showMenu(menuId) {
+    const menu = document.getElementById(menuId);
+    if (!menu) return;
+
+    // Tutup semua menu
+    document.querySelectorAll('.menu').forEach(menu => menu.classList.add('hidden'));
+
+    // Tampilkan overlay dan submenu
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
+    overlay.style.pointerEvents = 'auto'; // Aktifkan klik pada overlay
+    menu.classList.remove('hidden');
+}
+
+function closeMenu() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none'; // Sembunyikan overlay
+    overlay.style.pointerEvents = 'none'; // Nonaktifkan klik pada overlay
+    document.querySelectorAll('.menu').forEach(menu => menu.classList.add('hidden'));
+}
+
+function unmuteVideo() {
+        const video = document.getElementById('portfolioVideo');
+	const musicIcon = document.getElementById('musicIcon');
+    	const unmuteButton = document.getElementById('unmuteButton');
+        video.muted = false;
+        video.play();
+        document.getElementById('unmuteButton').style.display = 'none';
+        document.getElementById('musicIcon').classList.remove('hidden');
+    }
+
+function toggleTranslation() {
+    const headerTitle1 = document.querySelector("header h1:nth-of-type(1)");
+    const headerTitle2 = document.querySelector("header h1:nth-of-type(2)");
+    const subtitle = document.getElementById("subtitle");
+    const translateButton = document.getElementById("translateButton");
+    const unmuteButton = document.getElementById("unmuteButton");
+
+    const btnAsetDigital = document.getElementById("btnAsetDigital");
+    const btnAsetNFT = document.getElementById("btnAsetNFT");
+    const btnBuatAset = document.getElementById("btnBuatAset");
+    const btnAsetInspiratif = document.getElementById("btnAsetInspiratif");
+     
+    const isEnglish = translateButton.textContent === "English translation";
+
+    if (isEnglish) {
+        // Ubah teks ke bahasa Inggris
+        headerTitle1.textContent = "WELCOME";
+        headerTitle2.innerHTML = "TO THE DIGITAL CREATIVITY CENTER <span>RAD</span>!";
+        subtitle.innerHTML = "Hi, creators, visionaries, or just seekers of inspiration! <span class='icon'>🌟</span><br>You have just stepped into a world where visual ideas come alive and digital art speaks with elegance.";
+        translateButton.textContent = "Bahasa Indonesia";
+	unmuteButton.textContent = "Enable Sound 🎵";
+
+        // Ubah teks tombol menu utama
+        btnAsetDigital.textContent = "Digital Art Assets";
+        btnAsetNFT.textContent = "NFT Art Assets";
+        btnBuatAset.textContent = "Create Assets";
+        btnAsetInspiratif.textContent = "Inspirational Assets";
+    } else {
+        // Ubah teks kembali ke bahasa Indonesia
+        headerTitle1.textContent = "SELAMAT DATANG";
+        headerTitle2.innerHTML = "DI PUSAT KREATIVITAS DIGITAL <span>RAD</span>!";
+        subtitle.innerHTML = "Hai, kreator, visioner, atau sekadar pencari inspirasi! <span class='icon'>🌟</span><br>Anda baru saja melangkah ke dunia di mana ide-ide visual hidup dan seni digital berbicara dengan keindahan.";
+        translateButton.textContent = "English translation";
+	unmuteButton.textContent = "Aktifkan Suara 🎵";
+
+        // Ubah teks tombol menu utama
+        btnAsetDigital.textContent = "Aset Seni Digital";
+        btnAsetNFT.textContent = "Aset Seni NFT";
+        btnBuatAset.textContent = "Buat Aset";
+        btnAsetInspiratif.textContent = "Aset Inspiratif";
+    }
+}
+</script>
+
 </body>
 </html>
 
