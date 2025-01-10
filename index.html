@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kumpulan aset kreatif seni digital. Khusus untuk Editor, Creator, dan Branding.">
+    <meta name="keywords" content="Kreatif, Creative, Pusat Kreatif">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="9ipNbdrsWaXOvh0qNoBlz8sBDThOkUmgYAgshTJ1mvo">
+    <meta property="og:title" content="PUSAT KREATIF RAD">
+    <meta property="og:description" content="Kumpulan aset kreatif seni digital. Khusus untuk Editor, Creator, dan Branding.">
+    <meta property="og:image" content="https://ahmed-coderad.github.io/PusatKreatif/gambar-thumbnail.jpg">
+    <meta property="og:url" content="https://ahmed-coderad.github.io/PusatKreatif/">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://ahmed-coderad.github.io/PusatKreatif/">
+
+
+    <title>PUSAT KREATIF RAD</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <h1 class="title-shape">SELAMAT DATANG</h1>
+        <h1 class="title-shape">DI PUSAT KREATIVITAS DIGITAL <span>RAD</span>!</h1>
+        <p id="subtitle">Hai! Visioner, Editor, atau Kreator pencari inspirasi! <span class="icon">🌟</span><br>
+        Anda baru saja melangkah ke dunia di mana ide-ide visual hidup dan seni digital bercerita dengan estetik.</p>
+    </header>
+
+    <div class="container">
+        <!-- Video dengan ID dan atribut autoplay muted -->
+        <video id="portfolioVideo" autoplay muted loop playsinline>
+            <source src="PORTOFOLIO RAD dengan instrumen.mp4" type="video/mp4">
+            Browser Anda tidak mendukung video HTML5.
+        </video>
+
+        <!-- Tombol untuk mengaktifkan suara -->
+        <div class="button-row">
+        <button id="unmuteButton" class="unmute-button" onclick="unmuteVideo()">Aktifkan Suara 🎵</button>
+        <button id="translateButton" class="translate-button" onclick="toggleTranslation()">English translation</button>
+    </div>
+
+        <div id="overlay" onclick="closeMenu()"></div>
+<div class="container">
+    	<button id="btnAsetDigital" class="button">Aset Seni Digital</button>
+	<button id="btnAsetNFT" class="button">Aset Seni NFT</button>
+	<button id="btnBuatAset" class="button">Buat Aset</button>
+	<button id="btnAsetInspiratif" class="button">Aset Inspiratif</button>
+</div>
+
+<div id="menu1" class="menu hidden">
+    <button onclick="window.open('https://www.shutterstock.com/g/Rizky+Ahmed+Darmawan', '_blank')">Shutterstock</button>
+    <button onclick="window.open('https://stock.adobe.com/contributor/212427416/Rizky%20Ahmed+Darmawan', '_blank')">Adobe Stock</button>
+    <button onclick="closeMenu()">Kembali</button>
+</div>
+
+<div id="menu2" class="menu hidden">
+    <button onclick="window.open('https://opensea.io/collection/timeless-motion-art', '_blank')">Opensea</button>
+    <button onclick="closeMenu()">Kembali</button>
+</div>
+
+<div id="menu3" class="menu hidden">
+    <button onclick="window.open('https://www.sribu.com/id/users/RizkyAhmedDarmawan', '_blank')">Sribu</button>
+    <button onclick="closeMenu()">Kembali</button>
+</div>
+
+<div id="menu4" class="menu hidden">
+    <button onclick="window.open('https://www.youtube.com/@RizkyAhmedDarmawan', '_blank')">YouTube</button>
+    <button onclick="window.open('https://www.instagram.com/rizky_ahmed_darmawan/', '_blank')">Instagram</button>
+    <button onclick="closeMenu()">Kembali</button>
+</div>
+    </div>
+
+<div class="gift-box-container" id="giftBox">
+        <div class="tooltip" id="tooltip">
+            Gratis Ambil Aset senilai Rp. 20.000 hingga ratusan Ribu rupiah
+        </div>
+        <div class="gift-box">
+            <div class="ribbon-vertical"></div>
+            <div class="lid">
+                <div class="ribbon-horizontal"></div>
+                <div class="ribbon-bow">
+                    <div class="loop"></div>
+                    <div class="loop"></div>
+                </div>
+            </div>
+            <div class="shadow"></div>
+        </div>
+<!-- Tambahkan elemen bintang -->
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+    </div>
+
+<footer>
+        &copy; 2025 Rizky Ahmed Darmawan. All Rights Reserved.
+    </footer>
+
+<!-- Modal untuk menampilkan hadiah -->
+<div id="giftModal" style="display: none;">
+    <div class="modal-content">
+        <h1 class="modal-title">SELAMAT</h1>
+        <p class="modal-subtitle">kamu mendapatkan</p>
+        <img id="modalImage" src="" alt="Kucing ISTJ" class="modal-image" />
+        <p class="modal-description">
+            <strong>KUCING ISTJ</strong><br>
+            Terorganisir, tradisional, dan bertanggung jawab. Kucing ISTJ suka rutinitas dan sangat teliti.
+        </p>
+        <div class="modal-buttons">
+            <button id="likeButton" class="modal-like-button" aria-label="Like">❤️</button>
+    <button id="translateButtonModal" class="modal-translate-button">English translation</button>
+    <button id="backButton" class="modal-back-button">Kembali</button>
+        </div>
+    </div>
+</div>
+
+   
+<script src="scripts.js"></script>
+
+
+</body>
+</html>
