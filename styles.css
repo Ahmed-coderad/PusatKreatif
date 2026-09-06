@@ -780,160 +780,556 @@ video:hover {
 /* ==========================================================================
    Gift modal
    ========================================================================== */
+
 #giftModal {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     background-color: var(--paper);
     border-radius: 20px;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+
     z-index: 1500;
+
     padding: 0;
     text-align: center;
+
     width: min(92vw, 460px);
-    max-height: min(88vh, 680px);
+    max-width: calc(100vw - 16px);
+
     max-height: min(88dvh, 680px);
+
     box-sizing: border-box;
-    overflow-y: auto;
+
+    /*
+       Modal boleh melakukan scroll jika konten terlalu tinggi.
+    */
     overflow-x: hidden;
+    overflow-y: auto;
+
     -webkit-overflow-scrolling: touch;
+
     animation: modalIn 0.4s var(--ease-elastic);
 }
 
+
 @keyframes modalIn {
-    from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
-    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
+
+
+/* ==========================================================================
+   MODAL CONTENT
+   ========================================================================== */
 
 .modal-content {
     position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    width: 100%;
+    min-width: 0;
+
     margin: 0 auto;
+
     padding: 24px 20px;
+
     box-sizing: border-box;
+
     border-radius: 20px;
-    overflow: hidden;
+
+    /*
+       JANGAN hidden.
+       Biarkan seluruh teks dan objek mengikuti alur normal.
+    */
+    overflow: visible;
+
+    /*
+       Jangan biarkan flex item menyusut secara tidak terduga.
+    */
+    min-height: 0;
+
+    gap: 6px;
 }
+
+
+/* ==========================================================================
+   CONFETTI
+   ========================================================================== */
 
 #confettiCanvas {
     position: absolute;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     pointer-events: none;
 }
 
+
+/* ==========================================================================
+   TITLE
+   ========================================================================== */
+
 .modal-title {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     font-family: var(--font-display);
     font-size: clamp(20px, 4vw, 30px);
+
     color: var(--blue);
+
     margin: 6px 0 4px;
+
     text-align: center;
-    line-height: 1.2;
+
+    line-height: 1.25;
+
+    /*
+       Pastikan judul mengambil tinggi sesuai isi.
+    */
+    height: auto;
+    min-height: 0;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+    word-break: normal;
+
+    flex: 0 0 auto;
 }
+
+
+/* ==========================================================================
+   TEXT
+   ========================================================================== */
 
 .modal-subtitle,
 .modal-description {
-    color: var(--ink);
-    font-size: clamp(12px, 2vw, 15px);
-    line-height: 1.6;
-    text-align: center;
-    margin: 0 6px;
-    overflow-wrap: break-word;
-    font-family: var(--font-serif);
+    width: 100%;
     max-width: 34ch;
+    min-width: 0;
+
+    color: var(--ink);
+
+    font-family: var(--font-serif);
+
+    font-size: clamp(12px, 2vw, 15px);
+
+    line-height: 1.65;
+
+    text-align: center;
+
+    margin: 3px auto;
+
+    /*
+       Tinggi mengikuti isi teks.
+    */
+    height: auto;
+    min-height: 0;
+    max-height: none;
+
+    /*
+       Jangan sembunyikan teks.
+    */
+    overflow: visible;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+    word-break: normal;
+
+    box-sizing: border-box;
+
+    /*
+       Jangan biarkan teks dipaksa menyusut oleh flex.
+    */
+    flex: 0 0 auto;
 }
 
-.modal-description strong { color: var(--blue); }
+.modal-description strong {
+    color: var(--blue);
+}
+
+
+/* ==========================================================================
+   VISUAL / GAMBAR KADO
+   ========================================================================== */
 
 .modal-visual {
+    position: relative;
+
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 14px 0;
-    max-height: 38vh;
+
+    /*
+       INI PERUBAHAN PENTING.
+
+       Jangan gunakan:
+           max-height: 38vh;
+
+       pada container.
+
+       Biarkan container mengikuti tinggi objek.
+    */
+    height: auto;
+    min-height: 0;
+    max-height: none;
+
+    margin: 10px auto;
+
+    box-sizing: border-box;
+
+    /*
+       Visual dianggap sebagai satu item utuh.
+    */
+    flex: 0 0 auto;
+
+    overflow: visible;
 }
+
+
+/* ==========================================================================
+   IMAGE / CANVAS
+   ========================================================================== */
 
 .modal-image,
 .modal-canvas {
-    max-width: 68%;
-    max-height: 38vh;
+    display: block;
+
     width: auto;
     height: auto;
+
+    /*
+       Batasi objeknya, bukan container .modal-visual.
+    */
+    max-width: 88%;
+    max-height: min(38vh, 300px);
+
     object-fit: contain;
+
     border: 2px solid var(--green);
     border-radius: 10px;
+
     box-shadow: var(--shadow-soft);
+
+    box-sizing: border-box;
+
+    /*
+       Jangan biarkan gambar/canvas menyusut
+       sehingga elemen teks berikutnya terdorong
+       masuk ke area visual.
+    */
+    flex: 0 0 auto;
 }
 
-.modal-canvas { max-width: 88%; }
 
-.hidden { display: none !important; }
+/*
+   Canvas boleh sedikit lebih lebar.
+*/
+.modal-canvas {
+    max-width: 88%;
+}
+
+
+/* ==========================================================================
+   HIDDEN
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
 
 .modal-buttons {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+
     gap: 8px;
     flex-wrap: wrap;
-    margin-top: 12px;
+
+    margin-top: 8px;
+
+    box-sizing: border-box;
+
+    /*
+       Tombol selalu berada setelah konten visual.
+    */
+    flex: 0 0 auto;
 }
 
-.modal-buttons button { flex-shrink: 0; }
+
+.modal-buttons button {
+    flex-shrink: 0;
+    max-width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   LIKE BUTTON
+   ========================================================================== */
 
 .modal-like-button {
     background: none;
     border: none;
+
     font-size: 24px;
+
     cursor: pointer;
+
     transition: transform 0.2s ease;
 }
 
-.modal-like-button:hover { transform: scale(1.25) rotate(-8deg); }
+.modal-like-button:hover {
+    transform: scale(1.25) rotate(-8deg);
+}
+
+
+/* ==========================================================================
+   DOWNLOAD / TRANSLATE
+   ========================================================================== */
 
 .modal-download-button,
 .modal-translate-button {
     background-color: var(--green);
     color: var(--paper);
+
     padding: 10px 18px;
+
     border: none;
     border-radius: 25px;
+
     font-family: var(--font-display);
     font-size: 14px;
     font-weight: 600;
+
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+
+    box-sizing: border-box;
 }
 
 .modal-download-button:hover,
 .modal-translate-button:hover {
     background-color: var(--gold);
     color: var(--ink);
+
     transform: scale(1.05);
 }
+
+
+/* ==========================================================================
+   BACK BUTTON
+   ========================================================================== */
 
 #backButton {
     background-color: var(--blue);
     color: var(--paper);
+
     border: none;
     padding: 10px 18px;
+
     border-radius: 25px;
+
     font-family: var(--font-display);
     font-size: 14px;
     font-weight: 600;
+
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+
+    box-sizing: border-box;
 }
 
 #backButton:hover {
     background-color: var(--gold);
     color: var(--ink);
+
     transform: scale(1.05);
 }
 
+
+/* ==========================================================================
+   SMALL SCREEN
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+    #giftModal {
+        width: calc(100vw - 16px);
+        max-width: calc(100vw - 16px);
+        max-height: calc(100dvh - 16px);
+    }
+
+    .modal-content {
+        padding: 16px 12px 18px;
+        gap: 6px;
+    }
+
+    .modal-title {
+        font-size: clamp(18px, 6vw, 23px);
+        line-height: 1.25;
+    }
+
+    .modal-subtitle,
+    .modal-description {
+        max-width: 34ch;
+
+        font-size: 13px;
+        line-height: 1.6;
+
+        margin: 3px auto;
+    }
+
+    .modal-visual {
+        margin: 8px auto;
+
+        /*
+           Tetap auto.
+           Jangan batasi tinggi container.
+        */
+        max-height: none;
+    }
+
+    .modal-image,
+    .modal-canvas {
+        max-width: 88%;
+        max-height: 28dvh;
+    }
+
+    .modal-buttons {
+        width: 100%;
+        margin-top: 8px;
+
+        flex-direction: column;
+    }
+
+    .modal-buttons button {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================================================
+   VERY SMALL PHONE
+   ========================================================================== */
+
+@media (max-width: 359px) {
+
+    #giftModal {
+        width: calc(100vw - 12px);
+        max-width: calc(100vw - 12px);
+        max-height: calc(100dvh - 12px);
+    }
+
+    .modal-content {
+        padding: 12px 9px 14px;
+        gap: 5px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+
+    .modal-subtitle,
+    .modal-description {
+        max-width: 31ch;
+
+        font-size: 12px;
+        line-height: 1.55;
+
+        margin: 3px auto;
+    }
+
+    .modal-image,
+    .modal-canvas {
+        max-height: 24dvh;
+    }
+}
+
+
+/* ==========================================================================
+   SHORT / LANDSCAPE SCREEN
+   ========================================================================== */
+
+@media (max-height: 560px) {
+
+    #giftModal {
+        max-height: calc(100dvh - 10px);
+    }
+
+    .modal-content {
+        padding: 12px 16px 14px;
+        gap: 4px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+        line-height: 1.2;
+        margin: 2px 0;
+    }
+
+    .modal-subtitle,
+    .modal-description {
+        font-size: 12px;
+        line-height: 1.5;
+        max-width: 50ch;
+
+        margin: 2px auto;
+    }
+
+    .modal-visual {
+        margin: 5px auto;
+        max-height: none;
+    }
+
+    .modal-image,
+    .modal-canvas {
+        max-height: 20dvh;
+    }
+
+    .modal-buttons {
+        margin-top: 4px;
+    }
+}
 /* ==========================================================================
    Footer
    ========================================================================== */
