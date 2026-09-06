@@ -652,11 +652,18 @@ video:hover {
 }
 
 .gift-box--wallpaper .ribbon-vertical,
-.gift-box--wallpaper .ribbon-horizontal,
-.gift-box--wallpaper .loop { background-color: var(--paper); }
+.gift-box--wallpaper .lid .ribbon-horizontal,
+.gift-box--wallpaper .ribbon-bow .loop,
+.gift-box--wallpaper .ribbon-bow::after {
+    background-color: var(--paper);
+}
+
 .gift-box--quote .ribbon-vertical,
-.gift-box--quote .ribbon-horizontal,
-.gift-box--quote .loop { background-color: var(--blue); }
+.gift-box--quote .lid .ribbon-horizontal,
+.gift-box--quote .ribbon-bow .loop,
+.gift-box--quote .ribbon-bow::after {
+    background-color: var(--blue);
+}
 
 .gift-box .lid {
     position: absolute;
@@ -1557,15 +1564,22 @@ a {
    #FFFFFF = white
    #222222 = black
    -------------------------------------- */
-:root {
-    --gift-ribbon: #FCC102;
+/* ---------- GIFT RIBBON COLOR ---------- */
+
+/* KADO HIJAU — PITA PUTIH */
+.gift-box--wallpaper .ribbon-vertical,
+.gift-box--wallpaper .lid .ribbon-horizontal,
+.gift-box--wallpaper .ribbon-bow .loop,
+.gift-box--wallpaper .ribbon-bow::after {
+    background-color: var(--paper);
 }
 
-.gift-box .ribbon-vertical,
-.gift-box .lid .ribbon-horizontal,
-.gift-box .ribbon-bow .loop,
-.gift-box .ribbon-bow::after {
-    background-color: var(--gift-ribbon);
+/* KADO EMAS — PITA BIRU */
+.gift-box--quote .ribbon-vertical,
+.gift-box--quote .lid .ribbon-horizontal,
+.gift-box--quote .ribbon-bow .loop,
+.gift-box--quote .ribbon-bow::after {
+    background-color: var(--blue);
 }
 
 /* ---------- GIFT ROW ----------
