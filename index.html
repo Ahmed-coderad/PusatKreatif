@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id" data-lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kumpulan aset kreatif seni digital. Khusus untuk Editor, Creator, dan Branding.">
+    <meta name="keywords" content="Kreatif, Creative, Pusat Kreatif">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="9ipNbdrsWaXOvh0qNoBlz8sBDThOkUmgYAgshTJ1mvo">
+    <meta property="og:title" content="PUSAT KREATIF RAD">
+    <meta property="og:description" content="Kumpulan aset kreatif seni digital. Khusus untuk Editor, Creator, dan Branding.">
+    <meta property="og:image" content="https://ahmed-coderad.github.io/PusatKreatif/gambar-thumbnail.jpg">
+    <meta property="og:url" content="https://ahmed-coderad.github.io/PusatKreatif/">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://ahmed-coderad.github.io/PusatKreatif/">
+
+    <title>PUSAT KREATIF RAD — Studio Kreatif Digital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Fixed top bar: brand mark, sound toggle, language switch -->
+    <nav class="topbar">
+        <span class="brand-mark" aria-hidden="true">RAD</span>
+        <div class="topbar-controls">
+            <button id="soundToggle" class="icon-btn" type="button" aria-pressed="true" aria-label="Matikan efek suara">
+                <span class="icon-btn__on">🔊</span>
+                <span class="icon-btn__off">🔇</span>
+            </button>
+            <button id="langToggle" class="lang-pill" type="button" aria-label="Switch to English">
+                <span class="lang-pill__current">ID</span>
+                <span class="lang-pill__next">EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-blobs" aria-hidden="true">
+            <span class="blob blob--gold"></span>
+            <span class="blob blob--teal"></span>
+            <span class="blob blob--coral"></span>
+        </div>
+        <div class="hero-particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1 class="hero-title hero-title--enter" style="--d:0s" data-i18n="hero.title1">SELAMAT DATANG</h1>
+                <h1 class="hero-title hero-title--enter hero-title--brand" style="--d:0.12s">
+                    <span data-i18n="hero.title2a">DI PUSAT KREATIVITAS DIGITAL</span>
+                    <span class="brand-chip">RAD<span class="brand-chip__glow" aria-hidden="true"></span></span>
+                </h1>
+                <p class="hero-subtitle hero-title--enter" style="--d:0.26s" id="subtitle" data-i18n="hero.subtitle">
+                    Hai! Visioner, Editor, atau Kreator pencari inspirasi! <span class="icon">🌟</span><br>
+                    Anda baru saja melangkah ke dunia di mana ide-ide visual hidup dan seni digital bercerita dengan estetik.
+                </p>
+            </div>
+
+            <div class="hero-media hero-title--enter" style="--d:0.4s">
+                <div class="video-window">
+                    <div class="video-window__bar">
+                        <span class="dot dot--a"></span><span class="dot dot--b"></span><span class="dot dot--c"></span>
+                        <span class="video-window__label">portfolio_reel.mp4</span>
+                    </div>
+                    <div class="video-window__stage">
+                        <video id="portfolioVideo" autoplay muted loop playsinline>
+                            <source src="PORTOFOLIO RAD dengan instrumen.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung video HTML5.
+                        </video>
+                        <button id="unmuteButton" class="video-sound-btn" type="button" data-i18n-aria="video.unmuteAria" aria-label="Aktifkan suara video">
+                            <span class="video-sound-btn__icon">🔈</span>
+                        </button>
+                        <div class="waveform" id="waveform" aria-hidden="true">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="dividerGradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#35C2C1"/>
+                    <stop offset="50%" stop-color="#FFC145"/>
+                    <stop offset="100%" stop-color="#FF6F59"/>
+                </linearGradient>
+            </defs>
+            <path d="M0,30 C150,70 300,-10 450,30 C600,70 750,-10 900,30 C1000,55 1100,10 1200,30 L1200,60 L0,60 Z" fill="url(#dividerGradient)"></path>
+        </svg>
+    </div>
+
+    <main>
+        <!-- ASSET CATEGORIES -->
+        <section class="assets" id="assets">
+            <h2 data-i18n="assets.title">Jelajahi Aset Kreatif</h2>
+            <p class="section-sub" data-i18n="assets.subtitle">Empat pintu menuju dunia visual RAD — pilih yang sesuai kebutuhanmu.</p>
+
+            <div class="asset-grid">
+
+                <article class="asset-card" data-accent="teal">
+                    <button class="asset-card__trigger" type="button" aria-expanded="false" aria-controls="panel-digital" id="btnAsetDigital">
+                        <span class="asset-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="10" r="1.8" fill="currentColor"/><path d="m5.5 17 4.5-5 3 3 3.5-4.5L20 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span class="asset-card__text">
+                            <span class="asset-card__title" data-i18n="assets.digital.title">Aset Seni Digital</span>
+                            <span class="asset-card__desc" data-i18n="assets.digital.desc">Foto, ilustrasi, dan elemen desain siap pakai untuk proyek kreatifmu.</span>
+                        </span>
+                        <span class="asset-card__chevron" aria-hidden="true"></span>
+                    </button>
+                    <div class="asset-card__panel" id="panel-digital">
+                        <div class="asset-card__panel-inner">
+                            <a href="https://www.shutterstock.com/g/Rizky+Ahmed+Darmawan" target="_blank" rel="noopener">Shutterstock</a>
+                            <a href="https://stock.adobe.com/contributor/212427416/Rizky%20Ahmed+Darmawan" target="_blank" rel="noopener">Adobe Stock</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="asset-card" data-accent="gold">
+                    <button class="asset-card__trigger" type="button" aria-expanded="false" aria-controls="panel-nft" id="btnAsetNFT">
+                        <span class="asset-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 2v20M3 7l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span class="asset-card__text">
+                            <span class="asset-card__title" data-i18n="assets.nft.title">Aset Seni NFT</span>
+                            <span class="asset-card__desc" data-i18n="assets.nft.desc">Karya seni digital bergerak dalam koleksi Timeless Motion Art.</span>
+                        </span>
+                        <span class="asset-card__chevron" aria-hidden="true"></span>
+                    </button>
+                    <div class="asset-card__panel" id="panel-nft">
+                        <div class="asset-card__panel-inner">
+                            <a href="https://opensea.io/collection/timeless-motion-art" target="_blank" rel="noopener">Opensea</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="asset-card" data-accent="coral">
+                    <button class="asset-card__trigger" type="button" aria-expanded="false" aria-controls="panel-commission" id="btnBuatAset">
+                        <span class="asset-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20 5.5 14.5 15 5l3.5 3.5L9 18 4 20Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m13 7 3.5 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                        </span>
+                        <span class="asset-card__text">
+                            <span class="asset-card__title" data-i18n="assets.commission.title">Buat Aset</span>
+                            <span class="asset-card__desc" data-i18n="assets.commission.desc">Pesan desain custom sesuai kebutuhan brand atau proyekmu.</span>
+                        </span>
+                        <span class="asset-card__chevron" aria-hidden="true"></span>
+                    </button>
+                    <div class="asset-card__panel" id="panel-commission">
+                        <div class="asset-card__panel-inner">
+                            <a href="https://www.sribu.com/id/users/RizkyAhmedDarmawan" target="_blank" rel="noopener">Sribu</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="asset-card" data-accent="green">
+                    <button class="asset-card__trigger" type="button" aria-expanded="false" aria-controls="panel-inspiration" id="btnAsetInspiratif">
+                        <span class="asset-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8.5 15.5 12 10 15.5V8.5Z" fill="currentColor"/></svg>
+                        </span>
+                        <span class="asset-card__text">
+                            <span class="asset-card__title" data-i18n="assets.inspiration.title">Aset Inspiratif</span>
+                            <span class="asset-card__desc" data-i18n="assets.inspiration.desc">Video proses kreatif dan konten inspiratif di balik layar.</span>
+                        </span>
+                        <span class="asset-card__chevron" aria-hidden="true"></span>
+                    </button>
+                    <div class="asset-card__panel" id="panel-inspiration">
+                        <div class="asset-card__panel-inner">
+                            <a href="https://www.youtube.com/@RizkyAhmedDarmawan" target="_blank" rel="noopener">YouTube</a>
+                            <a href="https://www.instagram.com/rizky_ahmed_darmawan/" target="_blank" rel="noopener">Instagram</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p data-i18n="footer.copy">© 2025 Rizky Ahmed Darmawan. All Rights Reserved.</p>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/rizky_ahmed_darmawan/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+            <a href="https://www.youtube.com/@RizkyAhmedDarmawan" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+            <a href="https://opensea.io/collection/timeless-motion-art" target="_blank" rel="noopener" aria-label="Opensea">OS</a>
+            <a href="https://www.sribu.com/id/users/RizkyAhmedDarmawan" target="_blank" rel="noopener" aria-label="Sribu">SB</a>
+        </div>
+    </footer>
+
+    <!-- REWARD ORB + WHEEL MODAL (replaces the old gift box) -->
+    <button id="rewardOrb" class="reward-orb" type="button" aria-haspopup="dialog" aria-controls="rewardModal">
+        <span class="reward-orb__ring" aria-hidden="true"></span>
+        <span class="reward-orb__icon" aria-hidden="true">✦</span>
+        <span class="reward-orb__tooltip" id="rewardTooltip" data-i18n="reward.tooltip">Klaim hadiah kreatif ✨</span>
+    </button>
+
+    <div id="rewardModal" class="modal" aria-hidden="true">
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="rewardTitle">
+            <button class="modal__close" type="button" data-close aria-label="Tutup">✕</button>
+
+            <div id="wheelView">
+                <h3 id="rewardTitle" data-i18n="reward.title">Roda Hadiah Kreatif</h3>
+                <p class="modal__desc" data-i18n="reward.desc">Putar sekali sehari dan menangkan hadiah eksklusif untuk kreator.</p>
+
+                <div class="wheel-wrap">
+                    <span class="wheel-pointer" aria-hidden="true"></span>
+                    <div class="wheel" id="wheel"></div>
+                </div>
+
+                <button id="spinButton" class="cta-btn" type="button" data-i18n="reward.spin">Putar Sekarang</button>
+                <p id="spinCooldown" class="cooldown-note hidden" data-i18n="reward.cooldown">Kamu sudah putar hari ini. Kembali lagi besok!</p>
+            </div>
+
+            <div id="rewardResult" class="reward-result hidden">
+                <p class="reward-result__label" data-i18n="reward.won">Kamu memenangkan:</p>
+                <p id="rewardResultText" class="reward-result__prize"></p>
+                <div class="reward-code">
+                    <span id="rewardCode"></span>
+                    <button id="copyCode" type="button" data-i18n="reward.copy">Salin</button>
+                </div>
+                <p class="reward-result__instructions" data-i18n="reward.instructions">Tunjukkan kode ini lewat DM Instagram untuk klaim hadiahmu.</p>
+                <a id="rewardCta" class="cta-btn cta-btn--outline" target="_blank" rel="noopener" data-i18n="reward.cta">Buka Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
